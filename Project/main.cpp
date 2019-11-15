@@ -5,13 +5,28 @@
 int main()
 {
 	//file grab
+	string userinput;
 	string mainpass;
 	string password;
 	string address;
 	vector < pair<string, string>> data;
 	int x = 1;
-
+	
 	filegrab(data, mainpass);
+	/*
+	cout << mainpass << endl;
+	for (auto i : data)
+	{
+		cout << i.first << ", " << i.second << endl;
+	}
+	*/
+	cout << "Enter key: ";
+	cin >> userinput;
+	while (userinput != mainpass)
+	{
+		cout << "Incorrect, enter key: ";
+		cin >> userinput;
+	}
 
 	while (x > 0)
 	{
@@ -20,6 +35,7 @@ int main()
 
 		if (x == 0)
 		{
+			filesend(data, mainpass);
 			return 0;
 		}
 		else if (x == 1)
@@ -29,7 +45,7 @@ int main()
 			cout << "Enter an address: ";
 			cin >> address;
 			//add double check
-			storepassword(address, password, data);
+			storepassword(password, address, data);
 		}
 		else if (x == 2)
 		{
@@ -44,4 +60,5 @@ int main()
 		cout << endl;
 		
 	}
+	
 }
