@@ -12,7 +12,9 @@ using std::string;
 using std::getline;
 #include <vector>
 using std::vector;
+using std::pair;
 
+void storepassword(const string & password, const string & adress, vector<pair<string, string>>& data);
 
 
 

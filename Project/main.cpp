@@ -6,6 +6,7 @@ int main()
 {
 	string password;
 	string address;
+	vector < pair<string, string>> data;
 	int x = 1;
 
 	while (x > 0)
@@ -23,7 +24,7 @@ int main()
 			cin >> password;
 			cout << "Enter an address: ";
 			cin >> address;
-			//storepassword(address, password);
+			storepassword(address, password, data);
 		}
 		else if (x == 2)
 		{
@@ -38,4 +39,8 @@ int main()
 		}
 		cout << endl;
 	}
+}
+
+void storepassword(const string& password, const string& adress)
+{
 }

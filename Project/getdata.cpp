@@ -3,7 +3,7 @@
 
 #include "Main.hpp"
 
-void storepassword(string password, string adress)
+void storepassword(const string& password, const string& adress, vector<pair<string,string>>& data)
 {
 
 }
