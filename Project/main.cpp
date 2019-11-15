@@ -10,7 +10,7 @@ int main()
 
 	while (x > 0)
 	{
-		cout << "Hello would you like to store a password(1), Look for a password(2), or exit(0)";
+		cout << "Hello would you like to store a password(1), Look for a password(2), or exit(0): ";
 		cin >> x;
 
 		if (x == 0)
@@ -19,21 +19,23 @@ int main()
 		}
 		else if (x == 1)
 		{
-			cout << "Enter a password:";
-			getline(cin, password);
-			cout << "Enter an address:";
-			getline(cin, address);
+			cout << "Enter a password: ";
+			cin >> password;
+			cout << "Enter an address: ";
+			cin >> address;
 			//storepassword(address, password);
 		}
 		else if (x == 2)
 		{
-			cout << "What address do you want a password for:";
-			getline(cin, address);
+			cout << "What address do you want a password for: ";
+			cin >> address;
 			//searchpassword(address);
+			
 		}
 		else
 		{
 			cout << "Nonvalid number" << endl;
 		}
+		cout << endl;
 	}
 }
