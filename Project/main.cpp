@@ -5,6 +5,7 @@
 int main()
 {
 	//file grab
+	string userinput;
 	string mainpass;
 	string password;
 	string address;
@@ -12,11 +13,21 @@ int main()
 	int x = 1;
 	
 	filegrab(data, mainpass);
+	/*
 	cout << mainpass << endl;
 	for (auto i : data)
 	{
 		cout << i.first << ", " << i.second << endl;
 	}
+	*/
+	cout << "Enter key: ";
+	cin >> userinput;
+	while (userinput != mainpass)
+	{
+		cout << "Incorrect, enter key: ";
+		cin >> userinput;
+	}
+
 	while (x > 0)
 	{
 		cout << "Hello would you like to store a password(1), Look for a password(2), or exit(0): ";

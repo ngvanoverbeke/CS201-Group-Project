@@ -25,11 +25,4 @@ void filegrab(vector<pair<string, string>>& data, string& mainpass);
 void filesend(vector<pair<string, string>>& data, string& mainpass);
 
 
-
-
-
-
-
-
-
 #endif

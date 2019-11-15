@@ -1,6 +1,3 @@
-//This cpp file is used to gather data from the file used
-//prototype will not include file download
-
 #include "Main.hpp"
 
 void storepassword(const string& password, const string& address, vector<pair<string,string>>& data)
@@ -37,7 +34,6 @@ void filegrab(vector<pair<string, string>>& data, string & mainpass)
 			temp.second = address;
 			data.push_back(temp);
 		}
-		
 		x++;
 	}
 	myfile.close();
