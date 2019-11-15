@@ -6,8 +6,8 @@
 void storepassword(const string& password, const string& address, vector<pair<string,string>>& data)
 {
 	pair<string, string> temp;
-	temp.first = address;
-	temp.second = password;
+	temp.first = password;
+	temp.second = address;
 	data.push_back(temp);
 }
 
@@ -20,13 +20,15 @@ void storepassword(const string& password, const string& address, vector<pair<st
 }
 */
 
-void filesend(string& password, string& address)
+void filesend(vector<pair<string, string>>& data, string& mainpass)
 {
 	ofstream myfile;
 	myfile.open("PasswordsDontOpen.txt");
-
-	myfile << password;
-
+	myfile << mainpass << "\n";
+	for (auto i : data)
+	{
+		myfile << i.first << "," << i.second << "\n";
+	}
 	myfile.close();
 }
 

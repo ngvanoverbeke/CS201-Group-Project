@@ -10,7 +10,8 @@ int main()
 	string address;
 	vector < pair<string, string>> data;
 	int x = 1;
-
+	cout << "Enter a master password: ";
+	cin >> mainpass;
 	//filegrab(data, mainpass);
 
 	while (x > 0)
@@ -20,6 +21,7 @@ int main()
 
 		if (x == 0)
 		{
+			filesend(data, mainpass);
 			return 0;
 		}
 		else if (x == 1)
@@ -29,8 +31,7 @@ int main()
 			cout << "Enter an address: ";
 			cin >> address;
 			//add double check
-			storepassword(address, password, data);
-			filesend(address, password)
+			storepassword(password, address, data);
 		}
 		else if (x == 2)
 		{
@@ -45,4 +46,5 @@ int main()
 		cout << endl;
 		
 	}
+	
 }

@@ -20,7 +20,7 @@ void storepassword(const string & password, const string & address, vector<pair<
 
 //void filegrab(vector<pair<string, string>>& data, string& mainpass);
 
-void filesend(string& password, string& address);
+void filesend(vector<pair<string, string>>& data, string& mainpass);
 
 
 
