@@ -4,6 +4,7 @@
 
 int main()
 {
+	//file grab
 	string password;
 	string address;
 	vector < pair<string, string>> data;
@@ -24,23 +25,20 @@ int main()
 			cin >> password;
 			cout << "Enter an address: ";
 			cin >> address;
+			//add double check
 			storepassword(address, password, data);
 		}
 		else if (x == 2)
 		{
 			cout << "What address do you want a password for: ";
 			cin >> address;
-			//searchpassword(address);
-			
+			//searchpassword(address, data);
 		}
 		else
 		{
 			cout << "Nonvalid number" << endl;
 		}
 		cout << endl;
+		
 	}
-}
-
-void storepassword(const string& password, const string& adress)
-{
 }
