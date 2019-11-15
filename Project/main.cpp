@@ -5,10 +5,13 @@
 int main()
 {
 	//file grab
+	string mainpass;
 	string password;
 	string address;
 	vector < pair<string, string>> data;
 	int x = 1;
+
+	filegrab(data, mainpass);
 
 	while (x > 0)
 	{

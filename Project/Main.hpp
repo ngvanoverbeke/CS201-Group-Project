@@ -13,10 +13,12 @@ using std::getline;
 #include <vector>
 using std::vector;
 using std::pair;
+#include <fstream>
+using std::ofstream;
 
 void storepassword(const string & password, const string & adress, vector<pair<string, string>>& data);
 
-
+void filegrab(vector<pair<string, string>>& data, string& mainpass);
 
 
 
