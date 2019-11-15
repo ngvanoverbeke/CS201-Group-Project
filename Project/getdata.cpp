@@ -29,15 +29,16 @@ void filegrab(vector<pair<string, string>>& data, string & mainpass)
 		else if ((x % 2) != 0)
 		{
 			password = line;
+			temp.first = password;
 		}
 		else if ((x % 2) == 0)
 		{
 			address = line;
+			temp.second = address;
+			data.push_back(temp);
 		}
-
-		temp.first = password;
-		temp.second = address;
-		data.push_back(temp);
+		
+		x++;
 	}
 	myfile.close();
 }
