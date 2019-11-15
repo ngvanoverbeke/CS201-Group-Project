@@ -11,7 +11,7 @@ int main()
 	vector < pair<string, string>> data;
 	int x = 1;
 
-	filegrab(data, mainpass);
+	//filegrab(data, mainpass);
 
 	while (x > 0)
 	{
@@ -30,6 +30,7 @@ int main()
 			cin >> address;
 			//add double check
 			storepassword(address, password, data);
+			filesend(address, password)
 		}
 		else if (x == 2)
 		{
