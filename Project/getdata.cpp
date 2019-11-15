@@ -11,14 +11,36 @@ void storepassword(const string& password, const string& address, vector<pair<st
 	data.push_back(temp);
 }
 
-/*void filegrab(vector<pair<string, string>>& data, string & mainpass)
+void filegrab(vector<pair<string, string>>& data, string & mainpass)
 {
-	ofstream myfile;
+	int x = 0;
+	ifstream myfile;
 	myfile.open("PasswordsDontOpen.txt");
-	
+	string line;
+	pair<string, string> temp;
+	string password;
+	string address;
+	while(getline(myfile, line))
+	{
+		if (x == 0)
+		{
+			mainpass = line;
+		}
+		else if ((x % 2) != 0)
+		{
+			password = line;
+		}
+		else if ((x % 2) == 0)
+		{
+			address = line;
+		}
+
+		temp.first = password;
+		temp.second = address;
+		data.push_back(temp);
+	}
 	myfile.close();
 }
-*/
 
 void filesend(vector<pair<string, string>>& data, string& mainpass)
 {
@@ -27,7 +49,7 @@ void filesend(vector<pair<string, string>>& data, string& mainpass)
 	myfile << mainpass << "\n";
 	for (auto i : data)
 	{
-		myfile << i.first << "," << i.second << "\n";
+		myfile << i.first << "\n" << i.second << "\n";
 	}
 	myfile.close();
 }

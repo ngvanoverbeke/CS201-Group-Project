@@ -10,9 +10,8 @@ int main()
 	string address;
 	vector < pair<string, string>> data;
 	int x = 1;
-	cout << "Enter a master password: ";
-	cin >> mainpass;
-	//filegrab(data, mainpass);
+	
+	filegrab(data, mainpass);
 
 	while (x > 0)
 	{
