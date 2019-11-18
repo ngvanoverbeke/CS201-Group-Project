@@ -44,8 +44,26 @@ int main()
 			cin >> password;
 			cout << "Enter an address: ";
 			cin >> address;
-			//add double check
-			storepassword(password, address, data);
+			cout << "Are you sure you want to store (Yes/No):\nPASSWORD: " << password << "\nWEBADDRESS: " << address << "\n";
+			cin >> userinput;
+			while (userinput != "no" && userinput != "No" )
+			{
+				//FIXME
+				cin >> userinput;
+				if (userinput == "yes" || userinput == "Yes")
+				{
+					storepassword(password, address, data);
+					cout << "Adding password to database.\n";
+				}
+				else if (userinput == "no" || userinput == "No")
+				{
+					cout << "Taking you back to main page.\n";
+				}
+				else
+				{
+					cout << "Please enter yes or no.";
+				}
+			}
 		}
 		else if (x == 2)
 		{
