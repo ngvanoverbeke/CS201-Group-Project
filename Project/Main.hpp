@@ -24,5 +24,5 @@ void filegrab(vector<pair<string, string>>& data, string& mainpass);
 
 void filesend(vector<pair<string, string>>& data, string& mainpass);
 
-
+void searchpassword(const string& address, const vector < pair<string, string>>& data);
 #endif

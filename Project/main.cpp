@@ -6,9 +6,9 @@ int main()
 {
 	//file grab
 	string userinput;
-	string mainpass;
-	string password;
-	string address;
+	string mainpass = "";
+	string password = "";
+	string address = "";
 	vector < pair<string, string>> data;
 	int x = 1;
 	
@@ -40,17 +40,16 @@ int main()
 		}
 		else if (x == 1)
 		{
-			cout << "Enter a password: ";
-			cin >> password;
+			userinput = "temp";
 			cout << "Enter an address: ";
 			cin >> address;
-			cout << "Are you sure you want to store (Yes/No):\nPASSWORD: " << password << "\nWEBADDRESS: " << address << "\n";
-			cin >> userinput;
-			while (userinput != "no" && userinput != "No" )
+			cout << "Enter a password: ";
+			cin >> password;
+			cout << "Are you sure you want to store (Yes/No):\nWEBADDRESS: " << address << "\nPASSWORD: " << password << "\n";
+			while (userinput != "no" && userinput != "No" && userinput != "yes" && userinput != "Yes")
 			{
-				//FIXME
 				cin >> userinput;
-				if (userinput == "yes" || userinput == "Yes")
+				if (userinput == "Yes"|| userinput == "yes")
 				{
 					storepassword(password, address, data);
 					cout << "Adding password to database.\n";
@@ -69,7 +68,7 @@ int main()
 		{
 			cout << "What address do you want a password for: ";
 			cin >> address;
-			//searchpassword(address, data);
+			searchpassword(address, data);
 		}
 		else
 		{

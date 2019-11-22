@@ -51,3 +51,16 @@ void filesend(vector<pair<string, string>>& data, string& mainpass)
 	myfile.close();
 }
 
+void searchpassword(const string& address, const vector < pair<string, string>>& data)
+{
+	for (auto i : data)
+	{
+		if (address == i.second)
+		{
+			cout << "Your password for " << address << " is " << i.first << ".\n";
+			return;
+		}
+	}
+	cout << "The password was not found.\n";
+	return;
+}
