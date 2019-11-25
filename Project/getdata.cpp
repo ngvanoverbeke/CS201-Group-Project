@@ -19,6 +19,7 @@ void filegrab(vector<pair<string, string>>& data, string & mainpass)
 	string address;
 	while(getline(myfile, line))
 	{
+		//decode line RIGHT HERE
 		if (x == 0)
 		{
 			mainpass = line;
@@ -43,9 +44,11 @@ void filesend(vector<pair<string, string>>& data, string& mainpass)
 {
 	ofstream myfile;
 	myfile.open("PasswordsDontOpen.txt");
+	//encode mainpass
 	myfile << mainpass << "\n";
 	for (auto i : data)
 	{
+		//encode i.first & i.second
 		myfile << i.first << "\n" << i.second << "\n";
 	}
 	myfile.close();
