@@ -55,5 +55,5 @@ using CryptoPP::CBC_Mode;
 
 #include <assert.h>
 
-string encrypt(string& toEncrypt);
+string encrypt(string& toEncrypt, string& masterPass);
 #endif

@@ -44,13 +44,12 @@ void filesend(vector<pair<string, string>>& data, string& mainpass)
 {
 	ofstream myfile;
 	myfile.open("PasswordsDontOpen.txt");
-	mainpass = encrypt(mainpass);
 	myfile << mainpass << "\n";
 	for (auto i : data)
 	{
-		i.second = encrypt(i.second);
-		i.first = encrypt(i.first);
-		myfile << i.first << "\n" << i.second << "\n";
+		//i.second = encrypt(i.second, mainpass);
+		//i.first = encrypt(i.first, mainpass);
+		myfile << encrypt(i.first, mainpass) << "\n" << encrypt(i.second, mainpass) << "\n";
 	}
 	myfile.close();
 }

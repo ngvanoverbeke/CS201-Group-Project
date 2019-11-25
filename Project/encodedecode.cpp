@@ -8,7 +8,7 @@
 
 #include "Main.hpp"
 
-string encrypt(string& toEncrypt){
+string encrypt(string& toEncrypt, string& masterPass){
 
     AutoSeededRandomPool prng;
 
@@ -26,12 +26,8 @@ string encrypt(string& toEncrypt){
 
 	// Pretty print key
 	encoded.clear();
-	StringSource(key, sizeof(key), true,
-		new HexEncoder(
-			new StringSink(encoded)
-		) // HexEncoder
-	); // StringSource
-	cout << "key: " << encoded << endl;
+	encoded = masterPass;
+	//cout << "key: " << encoded << endl;
 
 	// Pretty print iv
 	encoded.clear();
@@ -40,14 +36,14 @@ string encrypt(string& toEncrypt){
 			new StringSink(encoded)
 		) // HexEncoder
 	); // StringSource
-	cout << "iv: " << encoded << endl;
+	//cout << "iv: " << encoded << endl;
 
 	/*********************************\
 	\*********************************/
 
 	try
 	{
-		cout << "plain text: " << plain << endl;
+		//cout << "plain text: " << plain << endl;
 
 		CBC_Mode< AES >::Encryption e;
 		e.SetKeyWithIV(key, sizeof(key), iv);
@@ -86,7 +82,7 @@ string encrypt(string& toEncrypt){
 			new StringSink(encoded)
 		) // HexEncoder
 	); // StringSource
-	cout << "cipher text: " << encoded << endl;
+	//cout << "cipher text: " << encoded << endl;
 
 	/*********************************\
 	\*********************************/
@@ -114,7 +110,7 @@ string encrypt(string& toEncrypt){
 		filter.Get((byte*)recovered.data(), recovered.size());
 #endif
 
-		cout << "recovered text: " << recovered << endl;
+		//cout << "recovered text: " << recovered << endl;
 	}
 	catch(const CryptoPP::Exception& e)
 	{
@@ -125,7 +121,7 @@ string encrypt(string& toEncrypt){
 	/*********************************\
 	\*********************************/
 
-	return recovered;
+	return encoded;
 }
 
 void printPassVector(){
