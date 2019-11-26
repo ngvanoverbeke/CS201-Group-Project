@@ -29,7 +29,7 @@ string decrypt(string& toDecrypt, string& masterPass){
 string encrypt(string& toEncrypt, string& masterPass){
 	byte iv[16] = "CA8A8878F14RFB7";
 	string plain = toEncrypt;
-	string key = "passwordis16char";
+	string key = masterPass;
 	string fluff;
 	
 	byte keyByte[16];

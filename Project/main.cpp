@@ -1,7 +1,6 @@
 //This is where everything is referenced and will include the visual part of the project
 
 #include "Main.hpp"
-
 int main()
 {
 	//file grab

@@ -1,7 +1,9 @@
 #include "Main.hpp"
+bool changed = false;
 
 void storepassword(const string& password, const string& address, vector<pair<string,string>>& data)
 {
+	changed = true;
 	pair<string, string> temp;
 	temp.first = password;
 	temp.second = address;
@@ -42,6 +44,7 @@ void filegrab(vector<pair<string, string>>& data, string & mainpass)
 
 void filesend(vector<pair<string, string>>& data, string& mainpass)
 {
+	if (changed == true){
 	ofstream myfile;
 	myfile.open("PasswordsDontOpen.txt" , std::ios::binary);
 	myfile << mainpass << "\n";
@@ -52,6 +55,7 @@ void filesend(vector<pair<string, string>>& data, string& mainpass)
 		myfile << encrypt(i.first, mainpass) << "\n" << encrypt(i.second, mainpass) << "\n";
 	}
 	myfile.close();
+	}
 }
 
 void searchpassword(const string& address, const vector < pair<string, string>>& data)
