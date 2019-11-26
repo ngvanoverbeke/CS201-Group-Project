@@ -54,6 +54,6 @@ using CryptoPP::AES;
 using CryptoPP::CBC_Mode;
 
 #include <assert.h>
-
+string decrypt(string& toDecrypt, string& masterpass);
 string encrypt(string& toEncrypt, string& masterPass);
 #endif

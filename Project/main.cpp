@@ -6,7 +6,7 @@ int main()
 {
 	//file grab
 	string userinput;
-	string mainpass = "";
+	string mainpass = "passwordis16char";
 	string password = "";
 	string address = "";
 	vector < pair<string, string>> data;

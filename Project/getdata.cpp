@@ -7,33 +7,33 @@ void storepassword(const string& password, const string& address, vector<pair<st
 	temp.second = address;
 	data.push_back(temp);
 }
-
 void filegrab(vector<pair<string, string>>& data, string & mainpass)
 {
 	int x = 0;
 	ifstream myfile;
-	myfile.open("PasswordsDontOpen.txt");
+	myfile.open("PasswordsDontOpen.txt", std::ios::binary);
 	string line;
 	pair<string, string> temp;
 	string password;
 	string address;
 	while(getline(myfile, line))
 	{
-		//decode line RIGHT HERE
+		
 		if (x == 0)
 		{
 			mainpass = line;
 		}
 		else if ((x % 2) != 0)
 		{
-			password = line;
+			password = decrypt(line, mainpass);
 			temp.first = password;
 		}
 		else if ((x % 2) == 0)
 		{
 			address = line;
-			temp.second = address;
+			temp.second = decrypt(line, mainpass);
 			data.push_back(temp);
+			//cout << temp.second << endl;
 		}
 		x++;
 	}
@@ -43,7 +43,7 @@ void filegrab(vector<pair<string, string>>& data, string & mainpass)
 void filesend(vector<pair<string, string>>& data, string& mainpass)
 {
 	ofstream myfile;
-	myfile.open("PasswordsDontOpen.txt");
+	myfile.open("PasswordsDontOpen.txt" , std::ios::binary);
 	myfile << mainpass << "\n";
 	for (auto i : data)
 	{
