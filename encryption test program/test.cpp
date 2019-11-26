@@ -33,7 +33,50 @@ using CryptoPP::CBC_Mode;
 #include <assert.h>
 #include <vector>
 
-int main(int argc, char* argv[])
+void decrypt(string& key, string&toDecrypt){
+	string plain;
+	string cipher = toDecrypt;
+	byte iv[AES::BLOCKSIZE] = "CA8A8878F14RFB7";
+	CBC_Mode< AES >::Decryption d;
+	    d.SetKeyWithIV((byte *) key.c_str(), sizeof(key), iv);
+
+		// The StreamTransformationFilter removes
+		//  padding as required.
+		StringSource s(cipher, true, 
+           new StreamTransformationFilter(d,
+			new StringSink(plain)
+			) // StreamTransformationFilter
+		); // StringSource
+    cout << plain;
+}
+
+int main(){
+	string key = "passwordis16char";
+    string plain = "google.com";
+    byte iv[AES::BLOCKSIZE] = "CA8A8878F14RFB7";
+    string recovered;
+	
+    CBC_Mode< AES >::Encryption e;
+	    e.SetKeyWithIV((byte *) key.c_str(), sizeof(key), iv);
+
+		// The StreamTransformationFilter removes
+		//  padding as required.
+		StringSource s(plain, true, 
+           new StreamTransformationFilter(e,
+			new StringSink(recovered)
+			) // StreamTransformationFilter
+		); // StringSource
+    cout << recovered << endl;
+	
+
+    string cipher = recovered;
+    //byte iv[AES::BLOCKSIZE] = "CA8A8878F14RFB7";
+	decrypt(key, recovered);
+}
+
+
+
+int oldmain(int argc, char* argv[])
 {
 	AutoSeededRandomPool prng;
 
