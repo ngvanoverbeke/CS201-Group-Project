@@ -9,6 +9,7 @@ void storepassword(const string& password, const string& address, vector<pair<st
 	temp.second = address;
 	data.push_back(temp);
 }
+
 void filegrab(vector<pair<string, string>>& data, string & mainpass)
 {
 	int x = 0;

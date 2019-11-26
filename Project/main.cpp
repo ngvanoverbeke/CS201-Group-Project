@@ -12,13 +12,7 @@ int main()
 	int x = 1;
 	
 	filegrab(data, mainpass);
-	/*
-	cout << mainpass << endl;
-	for (auto i : data)
-	{
-		cout << i.first << ", " << i.second << endl;
-	}
-	*/
+	
 	cout << "Enter key: ";
 	cin >> userinput;
 	while (userinput != mainpass)
