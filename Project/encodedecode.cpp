@@ -1,4 +1,4 @@
-//This cpp fil ewill be used to decode the data wanted, and encode the data given
+//This cpp file holds the functions to encrpyt and decrypt the passwords and addresses when necessary
 
 #include "Main.hpp"
 string decrypt(string& toDecrypt, string& masterPass){
@@ -21,12 +21,10 @@ string decrypt(string& toDecrypt, string& masterPass){
 }
 
 string encrypt(string& toEncrypt, string& masterPass){
-	byte iv[16] = "CA8A8878F14RFB7";
+	byte iv[AES::BLOCKSIZE] = "CA8A8878F14RFB7";
 	string plain = toEncrypt;
 	string key = masterPass;
 	string fluff;
-	
-	byte keyByte[16];
 
 	CBC_Mode< AES >::Encryption e;
 		e.SetKeyWithIV((byte *) key.c_str(), sizeof(key), iv);
